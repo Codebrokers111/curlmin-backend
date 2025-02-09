@@ -1,12 +1,12 @@
 const { Sequelize } = require("sequelize");
 require("dotenv").config();
 const db = process.env.MYSQL_DB;
-const dbname = process.env.MYSQL_DB_NAME;
+const uname = process.env.MYSQL_UNAME;
 const pass = process.env.MYSQL_PASS;
 const host = process.env.MYSQL_HOST;
-console.log(db, dbname, pass, host);
+console.log(db, uname, pass, host);
 
-const sequelize = new Sequelize(db, dbname, pass, {
+const sequelize = new Sequelize(db, uname, pass, {
   host: host,
   dialect: "mysql", // Specify the database dialect
   logging: false,
