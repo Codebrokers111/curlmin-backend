@@ -10,6 +10,7 @@ const UserCounts = require("../models/Urlcount");
 const eventEmitter = require("../eventEmitter");
 const bcrypt = require("bcryptjs");
 const { sequelize } = require("../mysql");
+const fpath = process.env.ASSETS_PATH;
 
 const deleteFromFolder = async (filePath) => {
   if (fs.existsSync(filePath)) {
@@ -143,7 +144,8 @@ router.delete("/deleteurl/:uid", async (req, res) => {
 router.delete("/deleteqr/:uid", async (req, res) => {
   const { uid } = req.params;
   const { userId, path } = req.body;
-  const filePath = `../public/UserAssets/qrcodes/${path}`;
+  const filePath = `${fpath}/qrcodes/${path}`;
+
   try {
     const url = await Cmqr.findOne({ where: { uid } });
     if (!url) {
@@ -166,8 +168,8 @@ router.delete("/deleteqr/:uid", async (req, res) => {
 router.delete("/deletect/:uid", async (req, res) => {
   const { uid } = req.params;
   const { userId, path } = req.body;
-  // const filePath = `./UserAssets/curltags/${path}`;
-  const filePath = `../public/UserAssets/curltags/${path}`;
+  const filePath = `${fpath}/curltags/${path}`;
+
   try {
     const url = await Sust.findOne({ where: { uid } });
     if (!url) {
@@ -194,8 +196,8 @@ router.delete("/deletect/:uid", async (req, res) => {
 router.delete("/deletebc/:uid", async (req, res) => {
   const { uid } = req.params;
   const { userId, path } = req.body;
-  // const filePath = `./UserAssets/curltags/${path}`;
-  const filePath = `../public/UserAssets/barcodes/${path}`;
+  const filePath = `${fpath}/barcodes/${path}`;
+
   try {
     const url = await Subc.findOne({ where: { uid } });
     if (!url) {
