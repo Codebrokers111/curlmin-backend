@@ -68,7 +68,8 @@ router.post("/createqr", async (req, res) => {
   let { userId, url, amount } = req.body;
   const uid = nanoid(6);
   const name = `${uid}_${Date.now()}.png`;
-  const filePath = `../public/UserAssets/qrcodes/${name}`;
+  // const filePath = `../public/UserAssets/qrcodes/${name}`;
+  const filePath = `/home/zain/curlmin/curlmin/public/UserAssets/qrcodes/${name}`;
   try {
     if (!url) {
       return res.status(400).json({ error: "URL is required" });
@@ -108,7 +109,6 @@ router.post("/createqr", async (req, res) => {
     }
     res.json({ shortUrl, nuid, qrCode, msg: "QR Code Generated Successfully" });
   } catch (error) {
-    console.error("Error generating QR code:", error);
     if (fs.existsSync(filePath)) {
       fs.unlink(filePath, (err) => {
         if (err) {
@@ -124,7 +124,8 @@ router.post("/createqr", async (req, res) => {
 
 router.post("/create-barcode", async (req, res) => {
   const { userId, data, path } = req.body;
-  const filePath = `../public/UserAssets/barcodes/${path}`;
+  // const filePath = `../public/UserAssets/barcodes/${path}`;
+  const filePath = `/home/zain/curlmin/curlmin/public/UserAssets/qrcodes/${path}`;
 
   if (!data) {
     return res
@@ -267,8 +268,8 @@ router.post("/createst", upload.single("image"), async (req, res) => {
     const url = req.body.url;
     const type = req.body.type;
     const name = req.body.name;
-    // const filePath = `./UserAssets/curltags/${name}`;
-    const filePath = `../public/UserAssets/curltags/${name}`;
+    // const filePath = `../public/UserAssets/curltags/${name}`;
+    const filePath = `/home/zain/curlmin/curlmin/public/UserAssets/qrcodes/${name}`;
 
     if (type === 1 && !url) {
       return res.status(400).send("URL is required.");
