@@ -4,10 +4,9 @@ const db = process.env.MYSQL_DB;
 const uname = process.env.MYSQL_UNAME;
 const pass = process.env.MYSQL_PASS;
 const host = process.env.MYSQL_HOST;
-console.log(db, uname, pass, host);
 
-const sequelize = new Sequelize("curlmin", "root", "Geeky@Zain98", {
-  host: "127.0.0.1",
+const sequelize = new Sequelize(db, uname, pass, {
+  host: host,
   dialect: "mysql", // Specify the database dialect
   logging: false,
   timezone: "+05:30",
