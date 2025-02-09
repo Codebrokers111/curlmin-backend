@@ -4,6 +4,7 @@ const db = process.env.MYSQL_DB;
 const dbname = process.env.MYSQL_DB_NAME;
 const pass = process.env.MYSQL_PASS;
 const host = process.env.MYSQL_HOST;
+console.log(db, dbname, pass, host);
 
 const sequelize = new Sequelize(db, dbname, pass, {
   host: host,
