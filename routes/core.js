@@ -124,8 +124,8 @@ router.post("/createqr", async (req, res) => {
 });
 
 router.post("/create-barcode", async (req, res) => {
-  const { userId, data, path } = req.body;
-  const filePath = `${path}/barcodes/${path}`;
+  const { userId, data, name } = req.body;
+  const filePath = `${path}/barcodes/${name}`;
 
   if (!data) {
     return res
