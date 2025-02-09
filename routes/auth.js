@@ -181,7 +181,9 @@ router.post("/checkcaptcha", async (req, res) => {
       `${CAPTCHA_VERIFY}?secret=${CAPTCHA_SEC_KEY}&response=${token}`,
       { method: "POST" }
     );
+    console.log(resp);
     const data = await resp.json();
+    console.log(data);
     if (data.success) {
       stat = true;
       res.status(200).json({ stat, msg: "captcha verified successfully" });
@@ -191,6 +193,7 @@ router.post("/checkcaptcha", async (req, res) => {
         .json({ stat, msg: "Not a Human, error verifying Captcha" });
     }
   } catch (error) {
+    console.log(error);
     res
       .status(500)
       .json({ stat, msg: "Some Error Occurred verifying captcha" });
