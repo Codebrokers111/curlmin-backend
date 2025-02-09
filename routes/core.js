@@ -17,7 +17,7 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
 router.post("/createurl", async (req, res) => {
-  const { userId, longUrl, pass, passval, expiryDate } = req.body;
+  const { userId, longUrl, pass, passval, creationDate, expiryDate } = req.body;
   console.log(expiryDate);
   // Validate input
   if (!longUrl) {
@@ -35,6 +35,7 @@ router.post("/createurl", async (req, res) => {
       longUrl,
       pass,
       passval,
+      creationDate,
       expiryDate,
     });
     if (userId) {
