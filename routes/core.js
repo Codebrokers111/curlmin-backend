@@ -125,7 +125,7 @@ router.post("/createqr", async (req, res) => {
 
 router.post("/create-barcode", async (req, res) => {
   const { userId, data, path } = req.body;
-  const filePath = `${path}/qrcodes/${path}`;
+  const filePath = `${path}/barcodes/${path}`;
 
   if (!data) {
     return res
@@ -268,7 +268,7 @@ router.post("/createst", upload.single("image"), async (req, res) => {
     const url = req.body.url;
     const type = req.body.type;
     const name = req.body.name;
-    const filePath = `${path}/qrcodes/${name}`;
+    const filePath = `${path}/curltags/${name}`;
 
     if (type === 1 && !url) {
       return res.status(400).send("URL is required.");
