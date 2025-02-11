@@ -11,7 +11,6 @@ const eventEmitter = require("../eventEmitter");
 const bcrypt = require("bcryptjs");
 const { sequelize } = require("../mysql");
 const fpath = process.env.ASSETS_PATH;
-console.log(fpath);
 
 const deleteFromFolder = async (filePath) => {
   if (fs.existsSync(filePath)) {
