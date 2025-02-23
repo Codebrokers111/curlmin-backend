@@ -79,7 +79,6 @@ router.get("/curltag/:alias", async (req, res) => {
 
 router.get("/:type/:id", (req, res) => {
   const { type, id } = req.params;
-  console.log(type, id);
 
   // Check if the type is valid
   if (!assetDirectories[type]) {
@@ -87,7 +86,6 @@ router.get("/:type/:id", (req, res) => {
   }
 
   const directory = assetDirectories[type];
-  console.log(directory);
   // Read files in the directory
   fs.readdir(directory, (err, files) => {
     if (err) {
