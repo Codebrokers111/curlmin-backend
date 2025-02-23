@@ -8,9 +8,9 @@ const Sust = require("../models/Sust");
 const Cmqr = require("../models/Cmqr");
 
 const assetDirectories = {
-  qr: path.resolve(__dirname, "../../build/UserAssets/qrcodes"),
-  bc: path.resolve(__dirname, "../../build/UserAssets/barcodes"),
-  ct: path.resolve(__dirname, "../../build/UserAssets/curltags"),
+  qr: path.resolve(__dirname, "../build/UserAssets/qrcodes"),
+  bc: path.resolve(__dirname, "../build/UserAssets/barcodes"),
+  ct: path.resolve(__dirname, "../build/UserAssets/curltags"),
 };
 
 router.get("/url/:alias", async (req, res) => {
@@ -86,7 +86,6 @@ router.get("/:type/:id", (req, res) => {
   }
 
   const directory = assetDirectories[type];
-  console.log(directory);
   // Read files in the directory
   fs.readdir(directory, (err, files) => {
     if (err) {
