@@ -8,9 +8,9 @@ const Sust = require("../models/Sust");
 const Cmqr = require("../models/Cmqr");
 
 const assetDirectories = {
-  qr: path.resolve(__dirname, "../build/UserAssets/qrcodes"),
-  bc: path.resolve(__dirname, "../build/UserAssets/barcodes"),
-  ct: path.resolve(__dirname, "../build/UserAssets/curltags"),
+  qr: path.resolve(__dirname, "../../curlmin/build/UserAssets/qrcodes"),
+  bc: path.resolve(__dirname, "../../curlmin/build/UserAssets/barcodes"),
+  ct: path.resolve(__dirname, "../../curlmin/build/UserAssets/curltags"),
 };
 
 router.get("/url/:alias", async (req, res) => {
